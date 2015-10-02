@@ -27,11 +27,6 @@ google.maps = google.maps || {};
 
 
 
-
-
-
-
-
 var map;
 var markers = [];
 var polylineCoordinates = [];
@@ -73,12 +68,13 @@ function initMap() {
 
         polylineCoordinates.push(pos);
 
-
+        var image2 = 'img/Bar_Green_Dot.png';
         var dest_pin = new google.maps.Marker({
           position: pos,
           map: map,
           title: 'Destination',
-          draggable:true
+          draggable:true,
+          icon: image2
         });
         markers.push(dest_pin);
 
@@ -198,42 +194,10 @@ function clickHandler(e) {
             console.log(uberURL);
         };
 
-        // var tabId;
-        // chrome.tabs.getSelected(null, function(tab){
-        //     console.log(tab);
-        //     tabId = tab;
 
-        // });
-        // chrome.tabs.update(tabId, {
-        //     url: uberURL
-        // });
-
-      
-
-      //   HttpClient client = new HttpClient();
-      // PostMethod post = new PostMethod("https://login.uber.com/oauth/token");
-      // post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      // post.setRequestHeader("Accept", "application/json");
-      // post.setParameter("client_secret",jmh4AQxxPxdVv5ouzJ2XXuWQ-naA51tx73Moc2b9);
-      // post.setParameter("client_id",boiai-4FnFBhlDZn_wS7pQgv3qC1aJW4);
-      // post.setParameter("grant_type", "authorization_code");
-      // post.setParameter("redirect_uri", "http://localhost:8888/UberExtension/popup.html");
-      // post.setParameter("code", code);
-        
-        //this.close(); // close the popup when the background finishes processing request
     });
 }
 
-
-// var activeTab;
-// chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
-
-//      // since only one tab should be active and in the current window at once
-//      // the return variable should only have one entry
-//      var activeTab = arrayOfTabs[0];
-//      var activeTabId = arrayOfTabs[0].id; // or do whatever you need
-
-// });
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -278,11 +242,10 @@ var destination_long;
 var userLatitude
   , userLongitude
 
-document.addEventListener('DOMContentLoaded', function() {
-    var link = document.getElementById('button_google');
-    // onClick's logic below:
-      link.addEventListener('click', function() {
-      deleteMarkers();
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        //alert('You pressed enter!');
+        deleteMarkers();
       for (i=0; i<lines.length; i++) 
       {                           
         lines[i].setMap(null); //or line[i].setVisible(false);
@@ -290,17 +253,27 @@ document.addEventListener('DOMContentLoaded', function() {
       polylineCoordinates.splice(1,1);
       var place = autocomplete.getPlace();
       var image = 'img/blue_dot.png';
+      var image2 = 'img/Bar_Green_Dot.png';
       var dest_pin = new google.maps.Marker({
           position: place.geometry.location,
           map: map,
           title: 'Destination',
           draggable:true,
+          icon: image2
         });
 
         destination_lat = place.geometry.location['H'];
         destination_long = place.geometry.location['L'];
 
         markers.push(dest_pin);
+        var bounds = new google.maps.LatLngBounds();
+        for(i=0;i<markers.length;i++) {
+         bounds.extend(markers[i].getPosition());
+        }
+
+        map.fitBounds(bounds);
+        map.setZoom(14);
+
         polylineCoordinates.push(place.geometry.location);
         addPolyline();
         getEstimatesForUserLocation(userLatitude, userLongitude, destination_lat, destination_long);
@@ -317,33 +290,26 @@ document.addEventListener('DOMContentLoaded', function() {
         destination_long = event.latLng.lng();
 
         markers.push(dest_pin);
+        var bounds = new google.maps.LatLngBounds();
+        for(i=0;i<markers.length;i++) {
+          bounds.extend(markers[i].getPosition());
+        }
+
+        map.fitBounds(bounds);
         polylineCoordinates.push(event.latLng);
         addPolyline();
         getEstimatesForUserLocation(userLatitude, userLongitude, destination_lat, destination_long);
     });
 
-
-
-
-      // addMarker(place.geometry.location);
-      // destination_lat = place.geometry.location['H'];
-      // destination_long = place.geometry.location['L'];
-      // addPolyline();
-
-    
-      //getEstimatesForUserLocation(userLatitude, userLongitude, destination_lat, destination_long);
-      
-
-
-
-    });
+    }
 });
+
 
 function addPolyline(){
       var polyline = new google.maps.Polyline({
         map: map,
         path: polylineCoordinates,
-        strokeColor: '#0000FF',
+        strokeColor: '#1FBAD6',
         strokeOpacity: 0.7,
         strokeWeight: 5
       });
@@ -404,3 +370,5 @@ function geolocate() {
     });
   }
 }
+
+
