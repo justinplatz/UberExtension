@@ -156,22 +156,28 @@ function getEstimatesForUserLocation(latitude,longitude, destination_lat, destin
 
  $("a").click(function(tab){
     if (destination_lat && destination_long) {
-            // Redirect to Uber API via deep-linking to the mobile web-app
-            var uberURL = "https://m.uber.com/sign-up?";
+            // // Redirect to Uber API via deep-linking to the mobile web-app
+            // var uberURL = "https://m.uber.com/sign-up?";
 
-            // Add parameters
-            uberURL += "client_id=" + uberClientId;
-            if (typeof userLatitude != typeof undefined) uberURL += "&" + "pickup_latitude=" + userLatitude;
-            if (typeof userLongitude != typeof undefined) uberURL += "&" + "pickup_longitude=" + userLongitude;
-            uberURL += "&" + "dropoff_latitude=" + destination_lat;
-            uberURL += "&" + "dropoff_longitude=" + destination_long;
+            // // Add parameters
+            // uberURL += "client_id=" + uberClientId;
+            // if (typeof userLatitude != typeof undefined) uberURL += "&" + "pickup_latitude=" + userLatitude;
+            // if (typeof userLongitude != typeof undefined) uberURL += "&" + "pickup_longitude=" + userLongitude;
+            // uberURL += "&" + "dropoff_latitude=" + destination_lat;
+            // uberURL += "&" + "dropoff_longitude=" + destination_long;
 
-            // Redirect to Uber
-            //window.location.href = uberURL;
-            console.log(uberURL);
+            // // Redirect to Uber
+            // //window.location.href = uberURL;
+            // console.log(uberURL);
+                // $.post('/form', function (data) {
+                //   console.log(data);
+                // });
+
+
+
     };
 
- });
+ }, 'json');
 }
 
 
