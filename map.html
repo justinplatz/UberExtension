@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize2.css">
+    <link rel="stylesheet" href="css/set2.css">
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/normalize3.css" />
+    <link rel="stylesheet" type="text/css" href="css/vicons-font.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+
+  </head>
+  <body>
+     <video autoplay loop poster="img/video.png" id="bgvid">
+          <source src="img/video.webm" type="video/webm">
+      </video>
+    <section>
+
+    <div>
+      <div id="locationField" style="width: 305px; margin-left: -7px;">
+      <span class="input input--makiko" style="float:left;">
+          <input id="autocomplete" onFocus="geolocate()" type="text" class="input__field input__field--makiko" placeholder="Enter a destination or drag pin on map">
+                 <label class="input__label input__label--makiko" for="input-16">
+                    <span class="input__label-content input__label-content--makiko">
+                    </span>
+                </label>
+          </input>
+      </span>
+      </div>
+      <script src="js/classie.js"></script>
+
+    </div>
+
+
+    <div id="map" style="margin-left:5px;"></div>
+
+
+      <a href="#">
+          <div class="uber_button" id="order">
+              <div>
+                <p id="time">Please Enter</p>
+                <p id="price">A Destination</p>
+                <p id="surge"></p>
+              </div>
+          </div>
+      </a>
+    </section>
+    <script src="js/popup.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/google_map.js"></script>
+    <script src="js/map.js"></script>
+
+
+
+
+  </body>
+</html>

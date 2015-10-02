@@ -1,54 +1,30 @@
 <html>
   <head>
-    <title>Party Invitation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize2.css">
-    <link rel="stylesheet" href="css/set2.css">
-    <link href="css/popup.css" rel="stylesheet" type="text/css">
+
 
   </head>
-  <body>
-    <section>
-    
-    <div id="locationField" style="width: 300px; margin-left: -5px;">
-    <span class="input input--makiko">
-        <input id="autocomplete" onFocus="geolocate()" type="text" class="input__field input__field--makiko">
-               <label class="input__label input__label--makiko" for="input-16">
-                  <span class="input__label-content input__label-content--makiko">
-                  </span>
-              </label>
-        </input>
-    </span>
-    </div>
-    <script src="js/classie.js"></script>
+  <body style="height: 400px; width: 300px; background-color: #C0C0C8;">
+      <img src="img/uber_logo2.png" style="width: 80vw; margin-left: 10vw; margin-top: 5vh;"> 
 
-    <button type="button" id="button_google">Enter</button>
-    <div id="map" style="margin-left:5px;"></div>
+      <video autoplay loop poster="img/video.png" id="bgvid">
+          <source src="img/video.webm" type="video/webm">
+      </video>
 
-
-
-
-     
-
-      <a href="#">
-          <div class="button" id="order">
-              <div>
-                <p id="time">Please Enter</p>
-                <p id="price">A Destination</p>
-                <p id="surge"></p>
-              </div>
-          </div>
+      <a href="map.html">
+          <button class="first_button" style="margin-top: 25vh;">
+            LOGIN
+          </button>
       </a>
-    </section>
-    <script src="js/popup.js"></script>
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="js/google_map.js"></script>
 
-
-
+      <a id="signup">
+        <button class="first_button" style="margin-top: 5vh;" > SIGN UP</button>
+      </a>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/login.js"></script>
 
   </body>
+
+
 </html>

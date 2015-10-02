@@ -3,7 +3,7 @@
 	z-index: 1;
 	display: inline-block;
 	margin: 1em;
-	max-width: 350px;
+	max-width: 300px;
 	width: calc(100% - 2em);
 	vertical-align: top;
 }
@@ -638,7 +638,7 @@
 
 .input__field--makiko {
 	width: 100%;
-	background: transparent;
+	background: white;
 	color: #797693;
 	z-index: 10;
 	font-weight: 500;
