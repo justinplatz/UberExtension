@@ -8,6 +8,9 @@ another super convenient way to request an Uber, by allowing them to use their C
 
 By making a Chrome Extension I hoped to keep the convenienc of Uber, and keeping users within just 1 click of having a car. 
 
+
+![demo](demo.gif)
+
 ##Technologies Used
 
 * Uber API - for Car price and Time Estimates
